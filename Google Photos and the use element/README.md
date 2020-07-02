@@ -42,7 +42,9 @@ In terms of size, the benefits depend on the complexity of the element being def
 
 ## Pay attention
 
-The `<use>` element does not accept every attribute. You can set [\_presentational attributes](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/Presentation) like `fill` and `stroke`, but not attributes characteristics of the defined element, like `d` for the `<path>` element.
+1. The `<use>` element does not accept every attribute
+
+You can set [_presentational attributes_](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/Presentation) like `fill` and `stroke`, but not attributes characteristics of the defined element, like `d` for the `<path>` element.
 
 ```html
 <!-- works -->
@@ -54,18 +56,51 @@ does not change the `d` attribute set on the defined shape
 <use href="#leaf" d="M 0 0 l 50 50" />
 ```
 
-When setting a presentational attribute, also remember that these **do not** override the attributes set on the defined shape. If you were to define the leaf with a `fill` attribute.
+2. When setting a presentational attribute, also remember that these **do not** override the attributes set on the defined shape.
+
+   If you were to define the leaf with a `fill` attribute.
+
+   ```html
+   <defs>
+     <path
+       id="leaf"
+       fill="hsl(5, 81%, 56%)"
+       d="M 0 0 v -50 a 25 25 0 0 1 0 50"
+     />
+   </defs>
+   ```
+
+   Every `<use>` element will use the given color. Even if you specify a different value.
+
+   ```html
+   <use href="#leaf" fill="hsl(217, 89%, 61%)" />
+   ```
+
+   Refer to the older version of the logo for a reference. The graphic defines a path element with a `fill`, to create a shadow, and the color is mainted when the shape is re-used in the body of the SVG element.
+
+   ```html
+   <path
+     fill="hsl(0, 0%, 0%)"
+     opacity="0.2"
+     d="M 2.5 -2.5 l 22.5 -25 v 27.5 h -15"
+   />
+   ```
+
+3. Be careful to describe the `id` attribute with a unique value. In the project at hand, using `#leaf` for the second SVG element as well would cause both graphics to use the shape defined first.
 
 ```html
-<defs>
-  <path id="leaf" fill="hsl(5, 81%, 56%)" d="M 0 0 v -50 a 25 25 0 0 1 0 50" />
-</defs>
+<svg>
+  <defs>
+    <path id="leaf">
+  </defs>
+<svg>
+
+<svg>
+  <defs>
+    <path id="leaf">
+  </defs>
+  <use href="#leaf" />
+<svg>
 ```
 
-Every `<use>` element will use the given color. Even if you specify a different value.
-
-```html
-<use href="#leaf" fill="hsl(217, 89%, 61%)" />
-```
-
-The color of the shape triumphs that which is set on the `<use>` element.
+In this trivial example the `<use>` element will refer to the first path, even if this is defined in a previous, different SVG element.
