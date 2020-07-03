@@ -38,43 +38,30 @@ Alternatively, you can **define** the shape, and later **re-use** it with the `<
 
 By repeating the same shape, it means you only need to change the syntax in the `defs` block to have it modify every instance. In this light, it functions as similarly to a component in a design system.
 
-In terms of size, the benefits depend on the complexity of the element being defined. In the project at hand, it is actually more efficient to repeat multiple `<path>` elements. See the size for `logo-use` and `logo-paths` for a comparison. Each graphic has been processed through [SVGOMG](https://jakearchibald.github.io/svgomg/) so that the syntax has been optimized.
+In terms of size, the benefits depend on the complexity of the element being defined. Refer to the `.svg` files for a comparison: the most recent version of the logo is actually smaller when repeating the path elements (`v1-paths.svg`), while the previous one is smaller when relying on the `<use>` element. Every `.svg` has been processed through [SVGOMG](https://jakearchibald.github.io/svgomg/) so that the syntax has been optimized and can be compared in a more meaningful standard.
+
+| Size in bytes | paths | use |
+| ------------- | ----- | --- |
+| v0            | 712   | 445 |
+| v1            | 307   | 362 |
 
 ## Pay attention
 
 1. The `<use>` element does not accept every attribute
 
-You can set [_presentational attributes_](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/Presentation) like `fill` and `stroke`, but not attributes characteristics of the defined element, like `d` for the `<path>` element.
+   You can set [_presentational attributes_](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/Presentation) like `fill` and `stroke`, but not attributes characteristics of the defined element, like `d` for `<path>` elements.
 
-```html
-<!-- works -->
-<use href="#leaf" fill="purple" />
+   ```html
+   <!-- works -->
+   <use href="#leaf" fill="purple" />
 
-<!-- does NOT work 
-does not change the `d` attribute set on the defined shape
--->
-<use href="#leaf" d="M 0 0 l 50 50" />
-```
+   <!-- does NOT work 
+   does not change the `d` attribute set on the defined shape
+   -->
+   <use href="#leaf" d="M 0 0 l 50 50" />
+   ```
 
 2. When setting a presentational attribute, also remember that these **do not** override the attributes set on the defined shape.
-
-   If you were to define the leaf with a `fill` attribute.
-
-   ```html
-   <defs>
-     <path
-       id="leaf"
-       fill="hsl(5, 81%, 56%)"
-       d="M 0 0 v -50 a 25 25 0 0 1 0 50"
-     />
-   </defs>
-   ```
-
-   Every `<use>` element will use the given color. Even if you specify a different value.
-
-   ```html
-   <use href="#leaf" fill="hsl(217, 89%, 61%)" />
-   ```
 
    Refer to the older version of the logo for a reference. The graphic defines a path element with a `fill`, to create a shadow, and the color is mainted when the shape is re-used in the body of the SVG element.
 
@@ -86,21 +73,23 @@ does not change the `d` attribute set on the defined shape
    />
    ```
 
-3. Be careful to describe the `id` attribute with a unique value. In the project at hand, using `#leaf` for the second SVG element as well would cause both graphics to use the shape defined first.
+   Every `<use>` element will use the given color. Even if you specify a different value.
 
-```html
-<svg>
-  <defs>
-    <path id="leaf">
-  </defs>
-<svg>
+3. Be careful to describe the `id` attribute with a unique value. In the project at hand, using `#leaf` for both `<defs>` block would cause both graphics to use the shape defined first.
 
-<svg>
-  <defs>
-    <path id="leaf">
-  </defs>
-  <use href="#leaf" />
-<svg>
-```
+   ```html
+   <svg>
+     <defs>
+       <path id="leaf">
+     </defs>
+   <svg>
 
-In this trivial example the `<use>` element will refer to the first path, even if this is defined in a previous, different SVG element.
+   <svg>
+     <defs>
+       <path id="leaf">
+     </defs>
+     <use href="#leaf" />
+   <svg>
+   ```
+
+   In this trivial example the `<use>` element will refer to the first path, even if this is defined in a previous, different SVG element.
