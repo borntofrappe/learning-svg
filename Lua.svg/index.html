@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lua.svg</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
   </head>
   <body>
     <svg
@@ -40,7 +40,9 @@
           <use href="#line" stroke="hsl(0, 0%, 100%)" />
           <g transform="rotate(45)">
             <!-- 282.6 as in the perimeter of a circle with radius 45
-            animate the dashoffset to begin at 0, as to hide completely the dash
+              ! consider that showing/hiding the solid line has an opposite effect on the masked variant
+              when the offset matches the dash, the solid line is hidden, and the mask variant is shown
+              when the offset is set to 0, the solid line is shown, which in turn hides the masked version
             -->
             <use
               id="dashoffset"
@@ -115,8 +117,6 @@
               <!-- 
               startOffset to have the text positioned at the end of the path
               ! be sure to use text-anchor="end", otherwise the text is cropped
-    
-                        
               -->
               <textPath href="#line" startOffset="100%" textLength="120">
                 the programming language
