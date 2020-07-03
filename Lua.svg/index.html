@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lua.svg</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="-55 -55 110 110"
+      width="300"
+      height="300"
+    >
+      <defs>
+        <path
+          id="line"
+          fill="none"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M 0 -45 a 45 45 0 0 1 0 90 45 45 0 0 1 0
+        -90"
+        />
+
+        <circle id="circle" r="10" />
+        <use id="circle--large" href="#circle" transform="scale(3)" />
+
+        <mask id="mask__circle">
+          <use fill="hsl(0, 0%, 100%)" href="#circle--large" />
+          <use
+            fill="hsl(0, 0%, 0%)"
+            href="#circle"
+            transform="rotate(45) translate(0 -15)"
+          />
+        </mask>
+
+        <mask id="mask__line">
+          <use href="#line" stroke="hsl(0, 0%, 100%)" />
+          <g transform="rotate(45)">
+            <!-- 282.6 as in the perimeter of a circle with radius 45
+            animate the dashoffset to begin at 0, as to hide completely the dash
+            -->
+            <use
+              id="dashoffset"
+              href="#line"
+              stroke="hsl(0, 0%, 0%)"
+              stroke-dasharray="282.6"
+              stroke-dashoffset="282.6"
+            />
+          </g>
+          <!-- animate opacity to hide/show the mask -->
+          <g class="opacity">
+            <!-- 135 as in 45-180 (45 to position toward the circle, -180 to have the line go back at the beginning of the text) -->
+            <g transform="rotate(-135)">
+              <!-- 141.3 to hide half of the dashed line -->
+              <use
+                href="#line"
+                stroke="hsl(0, 0%, 0%)"
+                stroke-dasharray="141.3"
+              />
+            </g>
+          </g>
+        </mask>
+      </defs>
+
+      <!-- DASHED LINE -->
+      <g mask="url(#mask__line)">
+        <g stroke="hsl(0, 0%, 60%)" stroke-dasharray="4 6">
+          <use href="#line" />
+        </g>
+      </g>
+
+      <!-- CIRCLES & LUA TEXT  -->
+      <g fill="currentColor">
+        <g mask="url(#mask__circle)">
+          <use href="#circle--large" />
+        </g>
+        <!-- animate the group to rotate the circle around the center -->
+        <g class="rotate">
+          <g transform="rotate(45) translate(0 -45)">
+            <use href="#circle" />
+          </g>
+        </g>
+      </g>
+      <g fill="hsl(0, 0%, 100%)">
+        <text
+          text-anchor="middle"
+          y="16"
+          font-size="22"
+          style="font-family: sans-serif; word-spacing: -6px;"
+        >
+          <tspan font-size="27">L</tspan>
+          <tspan>ua</tspan>
+        </text>
+      </g>
+
+      <!-- CURVED TEXT -->
+      <!-- animate the opacity to hide/show the text -->
+      <g class="opacity">
+        <!-- 45 would have the text end exactly on top of the circle -->
+        <g transform="rotate(25)">
+          <g fill="hsl(0, 0%, 50%)">
+            <!-- textLength to have the text cover less than half the circle  (141.3 would be half) 
+            ! it seems the attribute needs to be used both in the text and textPath element
+            -->
+            <text
+              style="font-family: sans-serif;"
+              font-size="9"
+              dominant-baseline="middle"
+              text-anchor="end"
+              textLength="120"
+            >
+              <!-- 
+              startOffset to have the text positioned at the end of the path
+              ! be sure to use text-anchor="end", otherwise the text is cropped
+    
+                        
+              -->
+              <textPath href="#line" startOffset="100%" textLength="120">
+                the programming language
+              </textPath>
+            </text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </body>
+</html>

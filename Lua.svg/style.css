@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+svg {
+  width: 15rem;
+  height: auto;
+  display: block;
+  color: hsl(240, 95%, 26%);
+}
+
+/* animation
+1. animate the circle to rotate counter-clockwise
+1. together with the circle, animate the line in the mask to start with a `0` offset. Effectively this hides the dash
+
+2. animate the text and the mask to show the tagline
+
+! use the duration of the first two animations for the delay of the last one
+*/
+svg {
+  --duration: 3s;
+}
+
+#dashoffset {
+  animation: dashoffset 3s steps(30);
+  animation: dashoffset var(--duration) steps(30);
+}
+
+.rotate {
+  animation: rotate 3s steps(30);
+  animation: rotate var(--duration) steps(30);
+}
+
+.opacity {
+  animation: opacity 0s 3s step-end both;
+  animation: opacity 0s var(--duration) step-end both;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(-1turn);
+  }
+}
+
+@keyframes dashoffset {
+  0% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
