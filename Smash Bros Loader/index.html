@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Smash Bros Loader</title>
+  </head>
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="-65 -65 130 130"
+      width="300"
+      height="300"
+    >
+      <defs>
+        <circle id="circle" r="25" />
+
+        <mask id="mask__circle">
+          <use fill="hsl(0, 0%, 100%)" href="#circle" />
+          <g fill="hsl(0, 0%, 0%)">
+            <rect x="-50" y="8" width="100" height="5" />
+            <rect x="-15" y="-50" width="10" height="100" />
+          </g>
+        </mask>
+        <filter id="blur">
+          <feGaussianBlur stdDeviation="3" />
+        </filter>
+      </defs>
+
+      <g fill="currentColor">
+        <g mask="url(#mask__circle)">
+          <use href="#circle" />
+        </g>
+        <!-- animate the group to rotate the circle around the center -->
+        <g class="rotate">
+          <g fill="currentColor" stroke="none">
+            <path
+              filter="url(#blur)"
+              opacity="0.5"
+              d="M 0 40 a 35 35 0 0 1 0 -70 10 10 0 0 0 0 -20 45 45 0 0 0 0 90"
+            />
+            <path
+              d="M 0 40 a 39 39 0 0 1 0 -78 2 2 0 0 0 0 -4 41 41 0 0 0 0 82"
+            />
+          </g>
+        </g>
+      </g>
+    </svg>
+  </body>
+</html>
