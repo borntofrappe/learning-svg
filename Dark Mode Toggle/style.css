@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  color: hsl(208, 13%, 29%);
+  background: hsl(184, 35%, 83%);
+}
+button {
+  margin: 1rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  display: block;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 0.1s ease-in-out;
+}
+button:hover {
+  opacity: 1;
+}
+button:focus {
+  outline: 1px solid currentColor;
+}
+svg {
+  display: block;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
