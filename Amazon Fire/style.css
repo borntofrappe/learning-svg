@@ -13,3 +13,17 @@ body {
   color: hsl(0, 0%, 100%);
   background: hsl(0, 0%, 0%);
 }
+svg {
+  width: 18rem;
+  height: auto;
+  display: block;
+}
+
+#translate {
+  animation: translate 5s linear infinite;
+}
+@keyframes translate {
+  to {
+    transform: translateX(0px);
+  }
+}
