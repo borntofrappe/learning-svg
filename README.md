@@ -6,4 +6,4 @@
 | Lua.svg                               | Create and animate SVG syntax with CSS properties               | https://codepen.io/borntofrappe/pen/NWxXEgp  |
 | Smash Bros Loader                     | Create a loading visual with a `<mask>` and `<filter>` element. | https://codepen.io/borntofrappe/full/xxZYwdQ |
 | Sun and Moon Toggle                   | Create a toggle to alternate between two color palette          | https://codepen.io/borntofrappe/pen/bGEvpBO  |
-| Amazon Fire                           | Recreate the text shown when turning an amazon fire on          | ???                                          |
+| Amazon Fire                           | Use mask and linearGradients elements. Update CSS properties    | https://codepen.io/borntofrappe/pen/XWXEgaV  |
