@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" width="300" height="300">
+  <defs>
+    <mask id="mask-slice">
+      <circle r="30" fill="white"/>
+      <circle r="24" cx="0" cy="15" fill="black"/>
+    </mask>
+  </defs>
+  <g>
+    <circle mask="url(#mask-slice)" r="30" transform="rotate(0) translate(20 0)" fill="hsl(0, 80%, 50%)" />
+    <circle mask="url(#mask-slice)" r="30" transform="rotate(45) translate(20 0)" fill="hsl(45, 80%, 50%)" />
+    <circle mask="url(#mask-slice)" r="30" transform="rotate(90) translate(20 0)" fill="hsl(90, 80%, 50%)" />
+    <circle mask="url(#mask-slice)" r="30" transform="rotate(135) translate(20 0)" fill="hsl(135, 80%, 50%)" />
+    <circle mask="url(#mask-slice)" r="30" transform="rotate(180) translate(20 0)" fill="hsl(180, 80%, 50%)" />
+    <circle mask="url(#mask-slice)" r="30" transform="rotate(225) translate(20 0)" fill="hsl(225, 80%, 50%)" />
+    <circle mask="url(#mask-slice)" r="30" transform="rotate(270) translate(20 0)" fill="hsl(270, 80%, 50%)" />
+    <circle mask="url(#mask-slice)" r="30" transform="rotate(315) translate(20 0)" fill="hsl(315, 80%, 50%)" />
+  </g>
+</svg>

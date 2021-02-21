@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" width="300" height="300">
+  <defs>
+    <mask id="mask-center">
+      <circle r="50" fill="white"/>
+      <circle r="30" fill="black"/>
+    </mask>
+
+    <mask id="mask-slice">
+      <circle r="30" fill="white"/>
+      <circle r="24" cy="15" fill="black"/>
+    </mask>
+
+    <radialGradient id="shadow-slice">
+      <stop stop-color="hsl(0, 0%, 0%, 0)" offset="0.75" />
+      <stop stop-color="hsl(0, 0%, 0%, 1)" offset="1" />
+    </radialGradient>
+
+    <g id="slice" mask="url(#mask-slice)">
+      <circle r="30" />
+      <circle r="30" opacity="0.15" fill="url(#shadow-slice)" />
+    </g>
+  </defs>
+  <g mask="url(#mask-center)">
+    <use href="#slice" transform="rotate(0) translate(20 0)" fill="hsl(0, 80%, 50%)" />
+    <use href="#slice" transform="rotate(45) translate(20 0)" fill="hsl(45, 80%, 50%)" />
+    <use href="#slice" transform="rotate(90) translate(20 0)" fill="hsl(90, 80%, 50%)" />
+    <use href="#slice" transform="rotate(135) translate(20 0)" fill="hsl(135, 80%, 50%)" />
+    <use href="#slice" transform="rotate(180) translate(20 0)" fill="hsl(180, 80%, 50%)" />
+    <use href="#slice" transform="rotate(225) translate(20 0)" fill="hsl(225, 80%, 50%)" />
+    <use href="#slice" transform="rotate(270) translate(20 0)" fill="hsl(270, 80%, 50%)" />
+    <use href="#slice" transform="rotate(315) translate(20 0)" fill="hsl(315, 80%, 50%)" />
+  </g>
+</svg>
