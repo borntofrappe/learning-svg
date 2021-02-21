@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100">
+  <defs>
+    <mask id="mask-inner">
+      <circle r="50" fill="white"/>
+      <circle r="30" fill="black"/>
+    </mask>
+
+    <mask id="mask-circle">
+      <circle r="30" fill="white"/>
+      <circle r="24" cy="15" fill="black"/>
+    </mask>
+
+    <radialGradient id="gradient">
+      <stop stop-color="white" offset="0.8" />
+      <stop stop-color="black" offset="1" />
+    </radialGradient>
+
+    <g id="circle">
+      <circle mask="url(#mask-circle)" r="30" />
+      <circle opacity="0.15" fill="url(#gradient)" mask="url(#mask-circle)" r="30" />
+    </g>
+  </defs>
+  <g mask="url(#mask-inner)">
+    <use href="#circle" transform="rotate(0) translate(20 0)" fill="hsl(0, 80%, 50%)" />
+    <use href="#circle" transform="rotate(45) translate(20 0)" fill="hsl(45, 80%, 50%)" />
+    <use href="#circle" transform="rotate(90) translate(20 0)" fill="hsl(90, 80%, 50%)" />
+    <use href="#circle" transform="rotate(135) translate(20 0)" fill="hsl(135, 80%, 50%)" />
+    <use href="#circle" transform="rotate(180) translate(20 0)" fill="hsl(180, 80%, 50%)" />
+    <use href="#circle" transform="rotate(225) translate(20 0)" fill="hsl(225, 80%, 50%)" />
+    <use href="#circle" transform="rotate(270) translate(20 0)" fill="hsl(270, 80%, 50%)" />
+    <use href="#circle" transform="rotate(315) translate(20 0)" fill="hsl(315, 80%, 50%)" />
+  </g>
+</svg>
