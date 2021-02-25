@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 5 105 90" style="width:400px;height:auto">
+  <defs>
+    <mask id="a">
+      <circle fill="#fff" r="45" cx="30" cy="50"/>
+      <path fill="#fff" d="M20 5h10v20H20zm0 70h10v20H20z"/>
+      <circle r="25" cx="30" cy="50"/>
+      <path d="M0 0h20v100H0z"/>
+      <path d="M0 25h30v50H0z"/>
+    </mask>
+    <mask id="b">
+      <circle fill="#fff" r="30" cx="95" cy="35"/>
+      <circle fill="#fff" r="30" cx="95" cy="65"/>
+      <path fill="#fff" d="M20 5h75v20H20zm0 70h75v20H20z"/>
+      <circle r="10" cx="95" cy="35"/>
+      <circle r="10" cx="95" cy="65"/>
+      <circle r="55" cx="30" cy="50"/>
+      <path d="M30 25h65v20H30zm0 30h65v20H30z"/>
+    </mask>
+  </defs>
+  <g mask="url(#a)">
+    <circle r="45" cx="30" cy="50"/>
+    <path d="M20 5h10v90H20z"/>
+  </g>
+  <g mask="url(#b)">
+    <circle r="30" cx="95" cy="35"/>
+    <path d="M20 5h75v20H20z"/>
+    <circle r="30" cx="95" cy="65"/>
+    <path d="M20 75h75v20H20z"/>
+  </g>
+</svg>

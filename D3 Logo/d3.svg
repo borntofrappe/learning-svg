@@ -1,5 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="300" height="300">
-  <g fill="none" stroke="currentColor" stroke-width="1">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 5 105 90" style="width: 400px; height: auto;">
+  <defs>
+    <mask id="mask-1">
+      <circle fill="white" r="45" cx="30" cy="50" />
+      <rect fill="white" x="20" y="5" width="10" height="20" />
+      <rect fill="white" x="20" y="75" width="10" height="20" />
+      <circle fill="black" r="25" cx="30" cy="50" />
+      <rect fill="black" width="20" height="100"  />
+      <rect fill="black" y="25" width="30" height="50"  />
+    </mask>
+
+    <mask id="mask-2">
+      <circle fill="white" r="30" cx="95" cy="35" />
+      <circle fill="white" r="30" cx="95" cy="65" />
+      <rect fill="white" x="20" y="5" width="75" height="20" />
+      <rect fill="white" x="20" y="75" width="75" height="20" />
+      <circle fill="black" r="10" cx="95" cy="35" />
+      <circle fill="black" r="10" cx="95" cy="65" />
+      <circle fill="black" r="55" cx="30" cy="50" />
+      <rect fill="black" x="30" y="25" width="65" height="20" />
+      <rect fill="black" x="30" y="55" width="65" height="20" />
+    </mask>
+  </defs>
+  <g>
+    <g mask="url(#mask-1)">
+      <circle r="45" cx="30" cy="50" />
+      <rect x="20" y="5" width="10" height="90" />
+    </g>
   
+    <g mask="url(#mask-2)">
+      <circle r="30" cx="95" cy="35" />
+      <rect x="20" y="5" width="75" height="20" />
+      <circle r="30" cx="95" cy="65" />
+      <rect x="20" y="75" width="75" height="20" />
+    </g>
   </g>
 </svg>
