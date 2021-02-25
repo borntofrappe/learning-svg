@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 100" style="width: 300; height: auto; outline: 1px solid red;">
+  <defs>
+    <mask id="mask-1">
+      <circle fill="white" r="45" cx="30" cy="50" />
+      <rect fill="white" x="20" y="5" width="10" height="20" />
+      <rect fill="white" x="20" y="75" width="10" height="20" />
+      <circle fill="black" r="25" cx="30" cy="50" />
+      <rect fill="black" width="20" height="100"  />
+      <rect fill="black" y="25" width="30" height="50"  />
+    </mask>
+
+    <mask id="mask-2">
+      <circle fill="white" r="30" cx="95" cy="35" />
+      <circle fill="white" r="30" cx="95" cy="65" />
+      <rect fill="white" x="20" y="5" width="75" height="20" />
+      <rect fill="white" x="20" y="75" width="75" height="20" />
+      <circle fill="black" r="10" cx="95" cy="35" />
+      <circle fill="black" r="10" cx="95" cy="65" />
+      <circle fill="black" r="55" cx="30" cy="50" />
+      <rect fill="black" x="30" y="25" width="65" height="20" />
+      <rect fill="black" x="30" y="55" width="65" height="20" />
+    </mask>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-width="0.05">
+    <circle r="10" cx="95" cy="65" />
+    <circle r="30" cx="95" cy="65" />
+    <circle r="10" cx="95" cy="35" />
+    <circle r="30" cx="95" cy="35" />
+    <circle r="55" cx="30" cy="50" />
+    <circle r="45" cx="30" cy="50" />
+    <circle r="25" cx="30" cy="50" />
+  
+    <path d="M 0 5 135 5" />
+    <path d="M 0 95 135 95" />
+    <path d="M 0 25 135 25" />
+    <path d="M 0 75 135 75" />
+    <path d="M 0 45 135 45" />
+    <path d="M 0 55 135 55" />
+    <path d="M 0 50 135 50" />
+
+    <path d="M 20 0 20 100" />
+    <path d="M 30 0 30 100" />
+    <path d="M 95 0 95 100" />
+    <path d="M 85 0 85 100" />
+    <path d="M 125 0 125 100" />
+  </g>
+  <g>
+    <g mask="url(#mask-1)">
+      <circle r="45" cx="30" cy="50" />
+      <rect x="20" y="5" width="10" height="90" />
+    </g>
+  
+    <g mask="url(#mask-2)">
+      <circle r="30" cx="95" cy="35" />
+      <rect x="20" y="5" width="75" height="20" />
+      <circle r="30" cx="95" cy="65" />
+      <rect x="20" y="75" width="75" height="20" />
+    </g>
+  </g>
+</svg>
